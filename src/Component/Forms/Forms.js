@@ -2,16 +2,7 @@ import { useFormik } from 'formik'
 import React, { useState } from 'react'
 // import { date } from 'yup/lib/locale'
 import "./Forms.css"
-import * as Yup from 'yup';
  
-//  const SignupSchema = Yup.object().shape({
-//   name: Yup
-//      .required('Required'),
-//    DOB: Yup
-//      .required('Required'),
-//    sex: Yup.required('Required'),
-//  });
-
 export default function Forms() {
     const [records, setRecords] = useState([])
     const [flag, setFlag] = useState(false)
@@ -223,7 +214,7 @@ export default function Forms() {
                         <button type='submit' id="SubmitBtn" onClick={clickHandlerSubmit}><span>SUBMIT</span> <span style={{ fontSize: "10px" }}> <br /> <u>(<img style={{
                             height: "16px",
                             margin: "-4px 0px",
-                        }} src="https://img.icons8.com/external-creatype-outline-colourcreatype/64/FFFFFF/external-cmd-essential-ui-v2-creatype-outline-colourcreatype.png" />S)</u></span></button>
+                        }} src="https://img.icons8.com/external-creatype-outline-colourcreatype/64/FFFFFF/external-cmd-essential-ui-v2-creatype-outline-colourcreatype.png" alt='icon not found'/>S)</u></span></button>
                     </div>
 
                 </form>
