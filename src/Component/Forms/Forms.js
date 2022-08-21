@@ -18,6 +18,7 @@ export default function Forms() {
             setRecords([...records, newrecord]);
         }
     })
+    console.log(records);
     return (
         records &&
         <div className="containerForms">
@@ -196,26 +197,31 @@ export default function Forms() {
                     </div>
 
                 </form>
+                <hr style={{
+                        margin:" 50px 0"
+                }}/>
             </div>
-            <hr />
+          
             <div className="tableFeilds">
+           
                 <table >
                     <thead>
 
                         <tr>
-                            <th>S.NO</th>
+                            <th>ID</th>
                             <th>Name</th>
                             <th>DOB</th>
                             <th>Sex</th>
                             <th>Mobile</th>
+                            <th>Govt ID Type</th>
                             <th>Govt ID</th>
                             <th>Guardian</th>
                             <th>Email</th>
                             <th>Emergency</th>
                             <th>Address</th>
-                            <th>Country</th>
                             <th>State</th>
                             <th>City</th>
+                            <th>Country</th>
                             <th>Pincode</th>
                             <th>Occupation</th>
                             <th>Religion</th>
@@ -229,11 +235,28 @@ export default function Forms() {
                         {
                             records.map((item) => {
                                 return (
-                                    <tr key={item.Id}>
+                                    <tr key={item.Id}   className="dataCellRow">
                                         <td>{item.Id}</td>
+                                        <td>{item.name}</td>
                                         <td>{item.DOB}</td>
                                         <td>{item.sex}</td>
                                         <td>{item.mobile}</td>
+                                        <td>{item.IDtype}</td>
+                                        <td>{item.GovtID}</td>
+                                        <td>{item.Guardian}</td>
+                                        <td>{item.Email}</td>
+                                        <td>{item.Emergency}</td>
+                                        <td>{item.Address}</td>
+                                        <td>{item.State}</td>
+                                        <td>{item.City}</td>
+                                        <td>{item.Country}</td>
+                                        <td>{item.Pincode}</td>
+                                        <td>{item.Occupation}</td>
+                                        <td>{item.Religion}</td>
+                                        <td>{item.MaritalStatus}</td>
+                                        <td>{item.BloodGroup}</td>
+                                        <td>{item.Nationality}</td>
+                                        
                                     </tr>
                                 )
                             })}
