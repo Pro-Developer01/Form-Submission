@@ -58,6 +58,10 @@ h3 {
   margin-top: 33px;
   align-items: center;
 }
+#CancelBtn:hover
+{
+  opacity: 1;
+}
 #CancelBtn {
   margin-right: 59px;
   color: red;
@@ -66,9 +70,15 @@ h3 {
   background: white;
   width: 96px;
   height: 54px;
+  opacity: .6;
+}
+#SubmitBtn:hover
+{
+  opacity: 1;
 }
 #SubmitBtn
 {
+  opacity: .6;
     background: #008000b8;
     color: white;
     border: solid;
