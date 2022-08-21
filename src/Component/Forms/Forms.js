@@ -2,9 +2,19 @@ import { useFormik } from 'formik'
 import React, { useState } from 'react'
 // import { date } from 'yup/lib/locale'
 import "./Forms.css"
+import * as Yup from 'yup';
+ 
+//  const SignupSchema = Yup.object().shape({
+//   name: Yup
+//      .required('Required'),
+//    DOB: Yup
+//      .required('Required'),
+//    sex: Yup.required('Required'),
+//  });
 
 export default function Forms() {
     const [records, setRecords] = useState([])
+    const [flag, setFlag] = useState(false)
     const formik = useFormik({
         initialValues: {
             name: "",
@@ -18,7 +28,15 @@ export default function Forms() {
             setRecords([...records, newrecord]);
         }
     })
-    console.log(records);
+    const clickHandlerSubmit=()=>{
+
+        console.log(records);
+        setFlag(true);
+    }
+    const clickHandlerCancel=()=>{
+
+        setFlag(false);
+    }
     return (
         records &&
         <div className="containerForms">
@@ -32,20 +50,21 @@ export default function Forms() {
 
                             <div >
 
-                                <label htmlFor="name">Name</label>
+                                <label htmlFor="name" style={{display: "flex"}}>Name <span style={{color:"red"}}>*</span></label>
                                 <input type="text" placeholder='Enter Name' name='name' id='name' value={formik.values.name} onChange={formik.handleChange} />
                             </div>
 
                             <div >
 
-                                <label htmlFor="DOB">Date Of Birth or Age</label>
+                                <label htmlFor="DOB" style={{display: "flex", }}>Date Of Birth or Age <span style={{color:"red",marginTop: "21px"}}>*</span></label>
                                 <input type="text" placeholder='DD/MM/YYYY 0r Age In Years' name='DOB' value={formik.values.DOB} onChange={formik.handleChange} />
                             </div>
 
                             <div >
 
-                                <label htmlFor="sex">Sex</label>
+                                <label htmlFor="sex" style={{display: "flex"}}>Sex <span style={{color:"red"}}>*</span></label>
                                 <select name="sex" className='Sex' id="sex" placeholder='Enter Sex' value={formik.values.sex} onChange={formik.handleChange}>
+                                    <option value="" disabled selected>Enter Sex</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                     <option value="Others">Others</option>
@@ -63,6 +82,7 @@ export default function Forms() {
 
                                 <label htmlFor="GovtId">Govt Issued ID</label>
                                 <select name="IDtype" id="IDType" placeholder='ID Type' value={formik.values.IDtype} onChange={formik.handleChange}>
+                                    <option value="" disabled selected>ID Type</option>
                                     <option value="Aadhar">Aadhar</option>
                                     <option value="PAN">PAN</option>
                                     <option value="Driving Licence">Driving Licence</option>
@@ -81,6 +101,7 @@ export default function Forms() {
 
                                 <label htmlFor="Guardian">Guardian Details</label>
                                 <select name="GuardianLabel" id="GuardianLabel" placeholder='Enter Label' value={formik.values.GuardianLabel} onChange={formik.handleChange}>
+                                    <option value="" disabled selected>Enter Label</option>
                                     <option value="Father">Father</option>
                                     <option value="Mother">Mother</option>
                                     <option value="Uncle">Uncle</option>
@@ -114,6 +135,7 @@ export default function Forms() {
 
                                 <label htmlFor="State">State</label>
                                 <select name="State" className='State' id="State" placeholder='Enter State' value={formik.values.State} onChange={formik.handleChange}>
+                                    <option value="" disabled selected>Enter State</option>
                                     <option value="UP">UP</option>
                                     <option value="MP">MP</option>
                                     <option value="Delhi">Delhi</option>
@@ -123,6 +145,7 @@ export default function Forms() {
 
                                 <label htmlFor="City">City</label>
                                 <select name="City" className='City' id="City" placeholder='Enter City' value={formik.values.City} onChange={formik.handleChange}>
+                                    <option value="" disabled selected>Enter City</option>
                                     <option value="Allahabad">allahabad</option>
                                     <option value="Lucknow">Lucknow</option>
                                     <option value="Pune">Pune</option>
@@ -132,6 +155,7 @@ export default function Forms() {
 
                                 <label htmlFor="Country">Country</label>
                                 <select name="Country" className='Country' id="Country" placeholder='Enter Country' value={formik.values.Country} onChange={formik.handleChange}>
+                                    <option value="" disabled selected>Enter Country</option>
                                     <option value="India">India</option>
                                     <option value="China">China</option>
                                     <option value="USA">USA</option>
@@ -158,6 +182,7 @@ export default function Forms() {
 
                                 <label htmlFor="Religion">Religion</label>
                                 <select name="Religion" className='Religion' id="Religion" placeholder='Enter Religion' value={formik.values.Religion} onChange={formik.handleChange}>
+                                    <option value="" disabled selected>Enter Religion</option>
                                     <option value="Hindu">Hindu</option>
                                     <option value="Muslim">Muslim</option>
                                     <option value="Sikh">Sikh</option>
@@ -167,6 +192,7 @@ export default function Forms() {
 
                                 <label htmlFor="MaritalStatus">Marital Status</label>
                                 <select name="MaritalStatus" className='MaritalStatus' id="MaritalStatus" placeholder='Enter MaritalStatus' value={formik.values.MaritalStatus} onChange={formik.handleChange}>
+                                    <option value="" disabled selected>Enter MaritalStatus</option>
                                     <option value="Married">Married</option>
                                     <option value="Single">Single</option>
                                     <option value="Complicated">Complicated</option>
@@ -176,6 +202,7 @@ export default function Forms() {
 
                                 <label htmlFor="BloodGroup">Blood Group</label>
                                 <select name="BloodGroup" className='BloodGroup' id="BloodGroup" placeholder='Enter BloodGroup' value={formik.values.BloodGroup} onChange={formik.handleChange}>
+                                    <option value="" disabled selected>Enter BloodGroup</option>
                                     <option value="A+">A+</option>
                                     <option value="Ab+">AB+</option>
                                     {/* <option value="USA">USA</option> */}
@@ -192,18 +219,21 @@ export default function Forms() {
                     </div>
 
                     <div className="ButtonsDiv">
-                        <button id="CancelBtn"><span>CANCEL</span> <span style={{    fontSize: "10px"}}> <br /> <u>(ESC)</u></span> </button>
-                        <button type='submit' id="SubmitBtn"><span>SUBMIT</span> <span style={{    fontSize: "10px"}}> <br /> <u>(ESC)</u></span></button>
+                        <button id="CancelBtn" onClick={clickHandlerCancel}> <span>CANCEL</span> <span style={{ fontSize: "10px" }}> <br /> <u>(ESC)</u></span> </button>
+                        <button type='submit' id="SubmitBtn" onClick={clickHandlerSubmit}><span>SUBMIT</span> <span style={{ fontSize: "10px" }}> <br /> <u>(<img style={{
+                            height: "16px",
+                            margin: "-4px 0px",
+                        }} src="https://img.icons8.com/external-creatype-outline-colourcreatype/64/FFFFFF/external-cmd-essential-ui-v2-creatype-outline-colourcreatype.png" />S)</u></span></button>
                     </div>
 
                 </form>
                 <hr style={{
-                        margin:" 50px 0"
-                }}/>
+                    margin: " 50px 0"
+                }} />
             </div>
-          
+            {flag &&
             <div className="tableFeilds">
-           
+
                 <table >
                     <thead>
 
@@ -235,7 +265,7 @@ export default function Forms() {
                         {
                             records.map((item) => {
                                 return (
-                                    <tr key={item.Id}   className="dataCellRow">
+                                    <tr key={item.Id} className="dataCellRow">
                                         <td>{item.Id}</td>
                                         <td>{item.name}</td>
                                         <td>{item.DOB}</td>
@@ -256,7 +286,7 @@ export default function Forms() {
                                         <td>{item.MaritalStatus}</td>
                                         <td>{item.BloodGroup}</td>
                                         <td>{item.Nationality}</td>
-                                        
+
                                     </tr>
                                 )
                             })}
@@ -265,6 +295,7 @@ export default function Forms() {
                 </table>
 
             </div>
+            }
 
         </div>
 
