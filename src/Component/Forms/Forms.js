@@ -191,21 +191,37 @@ export default function Forms() {
                     </div>
 
                     <div className="ButtonsDiv">
-                        <button id="SubmitBtn">CANCEL</button>
-                        <button type='submit' id="SubmitBtn">Submit</button>
+                        <button id="CancelBtn"><span>CANCEL</span> <span style={{    fontSize: "10px"}}> <br /> <u>(ESC)</u></span> </button>
+                        <button type='submit' id="SubmitBtn"><span>SUBMIT</span> <span style={{    fontSize: "10px"}}> <br /> <u>(ESC)</u></span></button>
                     </div>
 
                 </form>
             </div>
+            <hr />
             <div className="tableFeilds">
                 <table >
                     <thead>
 
                         <tr>
-                            <th>ID</th>
-                            <th>Dob</th>
-                            <th>sex</th>
+                            <th>S.NO</th>
+                            <th>Name</th>
+                            <th>DOB</th>
+                            <th>Sex</th>
                             <th>Mobile</th>
+                            <th>Govt ID</th>
+                            <th>Guardian</th>
+                            <th>Email</th>
+                            <th>Emergency</th>
+                            <th>Address</th>
+                            <th>Country</th>
+                            <th>State</th>
+                            <th>City</th>
+                            <th>Pincode</th>
+                            <th>Occupation</th>
+                            <th>Religion</th>
+                            <th>Marital Status</th>
+                            <th>Blood Group</th>
+                            <th>Nationality</th>
                         </tr>
                     </thead>
                     <tbody>
