@@ -193,7 +193,8 @@ export default function Forms() {
 
                     <div className="ButtonsDiv">
                         <button id="CancelBtn"><span>CANCEL</span> <span style={{    fontSize: "10px"}}> <br /> <u>(ESC)</u></span> </button>
-                        <button type='submit' id="SubmitBtn"><span>SUBMIT</span> <span style={{    fontSize: "10px"}}> <br /> <u>(ESC)</u></span></button>
+                        <button type='submit' id="SubmitBtn"><span>SUBMIT</span> <span style={{    fontSize: "10px"}}> <br /> <u>(<img  style={{    height: "16px",
+    margin: "-4px 0px",}} src="https://img.icons8.com/external-creatype-outline-colourcreatype/64/FFFFFF/external-cmd-essential-ui-v2-creatype-outline-colourcreatype.png"/>S)</u></span></button>
                     </div>
 
                 </form>
