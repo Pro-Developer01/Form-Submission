@@ -42,7 +42,35 @@ export default function Forms() {
                 </div>
 
             </form>
-            
+            <div className="table">
+                <table >
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Dob</th>
+                            <th>sex</th>
+                            <th>Mobile</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {
+                            records.map((item) => {
+                                return (
+                                    <tr key={item.Id}>
+                                        <td>{item.Id}</td>
+                                        <td>{item.DOB}</td>
+                                        <td>{item.sex}</td>
+                                        <td>{item.mobile}</td>
+                                    </tr>
+                                )
+                            })}
+                    </tbody>
+
+                </table>
+
+            </div>
 
         </div>
 
