@@ -190,8 +190,9 @@ export default function Forms() {
                         </div>
                     </div>
 
-                    <div className="row1">
-                        <button type='submit'>Submit</button>
+                    <div className="ButtonsDiv">
+                        <button id="SubmitBtn">CANCEL</button>
+                        <button type='submit' id="SubmitBtn">Submit</button>
                     </div>
 
                 </form>
