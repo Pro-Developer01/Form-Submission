@@ -1,9 +1,10 @@
 
 import './App.css';
+import Forms from './Component/Forms/Forms';
 
 function App() {
   return (
-    <div className="dsd">jsndkjsaa</div>
+    <Forms/>
   );
 }
 
