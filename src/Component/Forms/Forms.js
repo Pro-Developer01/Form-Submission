@@ -14,6 +14,23 @@ export default function Forms() {
             mobile: "",
             GovtID: "",
         },
+        validate: values=>{
+            let error={};
+
+            if(!values.name)
+            {
+                error.name="Required"
+            }
+            if(!values.DOB)
+            {
+                error.DOB="Required"
+            }
+            if(!values.sex)
+            {
+                error.sex="Required"
+            }
+            return error;
+        },
         onSubmit: values => {
             const newrecord = { ...values, Id: new Date().getTime().toString() }
             setRecords([...records, newrecord]);
@@ -43,12 +60,14 @@ export default function Forms() {
 
                                 <label htmlFor="name" style={{display: "flex"}}>Name <span style={{color:"red"}}>*</span></label>
                                 <input type="text" placeholder='Enter Name' name='name' id='name' value={formik.values.name} onChange={formik.handleChange} />
+                                <span id='errror'>{formik.errors.name?formik.errors.name:null}</span>
                             </div>
 
                             <div >
 
                                 <label htmlFor="DOB" style={{display: "flex", }}>Date Of Birth or Age <span style={{color:"red",marginTop: "21px"}}>*</span></label>
                                 <input type="text" placeholder='DD/MM/YYYY 0r Age In Years' name='DOB' value={formik.values.DOB} onChange={formik.handleChange} />
+                                <span id='errror'>{formik.errors.DOB?formik.errors.DOB:null}</span>
                             </div>
 
                             <div >
@@ -60,6 +79,7 @@ export default function Forms() {
                                     <option value="Female">Female</option>
                                     <option value="Others">Others</option>
                                 </select>
+                                <span id='errror'>{formik.errors.sex?formik.errors.sex:null}</span>
                             </div>
 
                             <div >
