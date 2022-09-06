@@ -6,6 +6,7 @@ import "./Forms.css"
 export default function Forms() {
     const [records, setRecords] = useState([])
     const [flag, setFlag] = useState(false)
+    const [SearchText, setSearchText] = useState("")
     const formik = useFormik({
         initialValues: {
             name: "",
@@ -45,9 +46,21 @@ export default function Forms() {
 
         setFlag(false);
     }
+    const Searchhandler=(e)=>{
+        setSearchText(e.target.value);
+        console.log(SearchText);
+        console.log(records);
+    }
+
+    const Searched = records.filter((item) => {
+        return ((item.name.toLowerCase()).includes(SearchText.toLowerCase()));
+      })
+    
     return (
         records &&
         <div className="containerForms">
+
+           
             <div className="formFeilds">
 
                 <form onSubmit={formik.handleSubmit}>
@@ -245,6 +258,11 @@ export default function Forms() {
             {flag &&
             <div className="tableFeilds">
 
+<div className="searchContainer">
+                <input type="text" placeholder='Search By Name' value={SearchText} onChange={Searchhandler} />
+              
+            </div>
+
                 <table >
                     <thead>
 
@@ -274,7 +292,7 @@ export default function Forms() {
                     <tbody>
 
                         {
-                            records.map((item) => {
+                            Searched.map((item) => {
                                 return (
                                     <tr key={item.Id} className="dataCellRow">
                                         <td>{item.Id}</td>
